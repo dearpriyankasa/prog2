@@ -211,8 +211,8 @@ function renderTriangles1() {
 
     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,triangleBuffer);
     console.log('inside 2nd method --- ', gl.TRIANGLES)
-    gl.drawArrays(gl.TRIANGLES,4,triBufferSize); // render
-    // gl.drawElements(gl.TRIANGLES,triBufferSize,gl.UNSIGNED_SHORT,0); // render
+    // gl.drawArrays(gl.TRIANGLES,4,triBufferSize); // render
+    gl.drawElements(gl.TRIANGLES,triBufferSize,gl.UNSIGNED_SHORT,0); // render
 } // end render triangles
 
 /* MAIN -- HERE is where execution begins after window load */
