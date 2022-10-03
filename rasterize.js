@@ -80,8 +80,6 @@ function loadTriangles(inputTriangles) {
         var index = 0;
 
         for (var whichSet=0; whichSet<inputTriangles.length; whichSet++) {
-          //  vec3.set(indexOffset,vtxBufferSize,vtxBufferSize,vtxBufferSize); // update vertex offset
-          // set up the vertex coord array
             for (whichSetVert=0; whichSetVert<inputTriangles[whichSet].vertices.length; whichSetVert++){
             	if (vertexOffset.has(inputTriangles[whichSet].vertices[whichSetVert])){
             		coordArray = coordArray.concat(inputTriangles[whichSet].vertices[whichSetVert]);
@@ -90,14 +88,10 @@ function loadTriangles(inputTriangles) {
 	            	vertexOffset.set(inputTriangles[whichSet].vertices[whichSetVert], index++);
 	                coordArray = coordArray.concat(inputTriangles[whichSet].vertices[whichSetVert]);
                 }
-                // console.log(inputTriangles[whichSet].vertices[whichSetVert]);
 	            var red = inputTriangles[whichSet].material.diffuse[0];
 	            var green = inputTriangles[whichSet].material.diffuse[1];
 	            var blue = inputTriangles[whichSet].material.diffuse[2];
 	            coordArray = coordArray.concat(red,green,blue);
-              // coordArray = coordArray.concat(inputTriangles[whichSet].vertices[whichSetVert]);
-              // console.log(inputTriangles[whichSet].vertices[whichSetVert]);
-
             }
             // set up the triangle index array, adjusting indices across sets
             for (whichSetTri=0; whichSetTri<inputTriangles[whichSet].triangles.length; whichSetTri++){
@@ -216,5 +210,4 @@ function main() {
   loadTriangles(inputTriangles); // load in the triangles from tri file
   setupShaders(); // setup the webGL shaders
   renderTriangles(); // draw the triangles using webGL
-
 } // end main
